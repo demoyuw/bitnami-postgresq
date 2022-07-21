@@ -25,10 +25,10 @@ global:
     ## @param global.postgresql.auth.secretKeys.replicationPasswordKey Name of key in existing secret to use for PostgreSQL credentials (overrides `auth.secretKeys.replicationPasswordKey`). Only used when `global.postgresql.auth.existingSecret` is set.
     ##
     auth:
-      postgresPassword: ""
-      username: ""
-      password: ""
-      database: ""
+      postgresPassword: "admin123!"
+      username: "admin"
+      password: "admin123!"
+      database: "db"
       existingSecret: ""
       secretKeys:
         adminPasswordKey: ""
@@ -573,7 +573,7 @@ primary:
   service:
     ## @param primary.service.type Kubernetes Service type
     ##
-    type: ClusterIP
+    type: NodePort
     ## @param primary.service.ports.postgresql PostgreSQL service port
     ##
     ports:
@@ -584,7 +584,7 @@ primary:
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
     ##
     nodePorts:
-      postgresql: ""
+      postgresql: "30063"
     ## @param primary.service.clusterIP Static clusterIP or None for headless services
     ## e.g:
     ## clusterIP: None
